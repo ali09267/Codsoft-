@@ -1,0 +1,60 @@
+import java.util.Scanner;
+import java.util.Random;
+class Game{
+    private int GuessedNum;//my number
+    private int OriginalNum;//computer number
+    private int Attempts;//score
+
+    void setData(int chance)
+    {
+        Attempts=chance;
+    }
+    Game(){
+        Random r=new Random();
+        OriginalNum=r.nextInt(100);
+    }
+    void takeUserInput()
+    {
+        System.out.print("Take a guess(1-100): ");
+        Scanner s=new Scanner(System.in);
+        GuessedNum=s.nextInt();
+    }
+    void isCorrectNum()
+    {
+        Scanner s=new Scanner(System.in);
+        while(GuessedNum!=OriginalNum){
+            while(GuessedNum<0||GuessedNum>100){
+                System.out.println("Your guessed number is not with in range. Please guess number between 1-100");
+                GuessedNum=s.nextInt();
+            }
+            if(GuessedNum>OriginalNum)
+            {
+                System.out.println("Your guess is high , try again: ");
+            }
+            else if(OriginalNum>GuessedNum)
+            {
+                System.out.println("Your guess is low , try again: ");
+            }
+            System.out.println("Number of attempts "+( Attempts+1));
+            Attempts++;
+            if( Attempts==7){
+                timeUp();
+                break;
+            }
+            GuessedNum=s.nextInt();
+            if(GuessedNum==OriginalNum){
+                System.out.println("CORRECT! You got it ");
+            }
+        }}
+    void timeUp(){
+        System.out.println("Your number of attempts are over , the number was "+OriginalNum);
+    }
+}
+public class Number_Guessing {
+    public static void main(String[] args) {
+        Game g=new Game();
+        g.setData(0);
+        g.takeUserInput();
+        g.isCorrectNum();
+    }
+}
