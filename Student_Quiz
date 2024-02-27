@@ -1,0 +1,116 @@
+import java.util.Scanner;
+
+public class Student_Quiz {
+    public static void main(String[] args) {
+
+        int correctAnswers = 0;
+        long start, end, total;
+        String ans1,ans2,ans3,ans4,ans5;
+
+        Scanner s = new Scanner(System.in);
+        System.out.println("\t\t\t\t\t\t"+"********MULTIPLE CHOICE QUIZ********");
+        System.out.println();
+
+        System.out.println("You have 10 seconds for entering the option of every MCQ , press enter if u are ready! ");
+        s.nextLine();
+
+        // Question 1
+        System.out.println("Largest mammal on planet Earth: ");
+        System.out.println("(a) Blue whale");
+        System.out.println("(b) Elephant");
+        System.out.println("(c) Bear");
+        System.out.println("(d) Hippopotamus");
+
+        start = System.currentTimeMillis();
+        ans1 = s.nextLine();
+        end = System.currentTimeMillis();
+        total = end - start;
+
+
+        if (ans1.equalsIgnoreCase("a") && total <= 10000) {
+            correctAnswers++;
+        } else if (total > 10000) {
+            System.out.println("Sorry! You are out of time");
+        }
+
+        // Question 2
+
+        System.out.println("Which of the following are cold-blooded animals: ");
+        System.out.println("(a) Monkeys");
+        System.out.println("(b) Dolphins");
+        System.out.println("(c) Whales");
+        System.out.println("(d) Snake");
+
+        start = System.currentTimeMillis();
+        ans2 = s.nextLine();
+        end = System.currentTimeMillis();
+        total = end - start;
+
+        if (ans2.equalsIgnoreCase("d") && total <= 10000) {
+            correctAnswers++;
+        } else if (total > 10000) {
+            System.out.println("Sorry! You are out of time");
+        }
+
+        // Question 3
+        System.out.println("We as humans are in the category of: ");
+        System.out.println("(a) Warm-blooded");
+        System.out.println("(b) Mammals");
+        System.out.println("(c) Both a and b");
+        System.out.println("(d) Cold-blooded");
+
+        start = System.currentTimeMillis();
+        ans3 = s.nextLine();
+        end = System.currentTimeMillis();
+        total = end - start;
+
+        if (ans3.equalsIgnoreCase("c") && total <= 10000) {
+            correctAnswers++;
+        } else if (total > 10000) {
+            System.out.println("Sorry! You are out of time");
+        }
+
+        // Question 4
+        System.out.println("Which of the following don't have teeth: ");
+        System.out.println("(a) Snakes");
+        System.out.println("(b) Sparrow");
+        System.out.println("(c) Frog");
+        System.out.println("(d) Pandas");
+
+        start = System.currentTimeMillis();
+        ans4 = s.nextLine();
+        end = System.currentTimeMillis();
+        total = end - start;
+
+        if (ans4.equalsIgnoreCase("b") && total <= 10000) {
+            correctAnswers++;
+        } else if (total > 10000) {
+            System.out.println("Sorry! You are out of time");
+        }
+
+        // Question 5
+        System.out.println("Which of the following animals cannot run zigzag: ");
+        System.out.println("(a) Foxes");
+        System.out.println("(b) Crocodiles");
+        System.out.println("(c) Monkeys");
+        System.out.println("(d) Dogs");
+
+        start = System.currentTimeMillis();
+        ans5 = s.nextLine();
+        end = System.currentTimeMillis();
+        total = end - start;
+
+        if (ans5.equalsIgnoreCase("b") && total <= 10000) {
+            correctAnswers++;
+        } else if (total > 10000) {
+            System.out.println("Sorry! You are out of time");
+        }
+
+        System.out.println("Your score is " + correctAnswers + " out of 5");
+        System.out.println("Correct answers: " + correctAnswers);
+        System.out.println("Wrong answers: " + (5 - correctAnswers));
+
+        // Close the scanner
+        s.close();
+    }
+}
